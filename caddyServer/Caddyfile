@@ -1,0 +1,13 @@
+:80 {
+	log {
+		output file /var/log/access.log
+	}
+
+	handle_path /api/* {
+		reverse_proxy api:8080
+	}
+
+	handle {
+		reverse_proxy client:3000
+	}
+}

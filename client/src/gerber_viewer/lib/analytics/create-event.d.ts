@@ -1,0 +1,11 @@
+import * as State from '../state';
+import { AnalyticsEvent } from './types';
+export declare const APP_OPENED = "appOpened";
+export declare const CREATE_BOARD_REQUEST = "createBoardRequest";
+export declare const GET_BOARD_REQUEST = "getBoardRequest";
+export declare const BOARD_RENDERED = "boardRendered";
+export declare const BOARD_UPDATED = "boardUpdated";
+export declare const BOARD_DELETED = "boardDeleted";
+export declare const BOARD_DOWNLOADED = "boardDownloaded";
+export declare const ERROR = "error";
+export default function createEvent(action: State.Action, nextState: State.State, prevState: State.State): AnalyticsEvent | null;

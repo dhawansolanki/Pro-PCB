@@ -1,0 +1,36 @@
+import React from "react";
+import { Omit } from "../types";
+import { Props as FaIconProps } from "@fortawesome/react-fontawesome";
+declare const PREFIX_BY_ICON: {
+    check: string;
+    "check-square": string;
+    "chevron-left": string;
+    "chevron-right": string;
+    circle: string;
+    cog: string;
+    copy: string;
+    "dot-circle": string;
+    expand: string;
+    eye: string;
+    "eye-slash": string;
+    "file-download": string;
+    "file-upload": string;
+    plus: string;
+    "question-circle": string;
+    "search-plus": string;
+    "search-minus": string;
+    "sliders-h": string;
+    spinner: string;
+    square: string;
+    times: string;
+    "trash-alt": string;
+};
+export declare type IconName = keyof typeof PREFIX_BY_ICON;
+export declare type IconProps = {
+    name: IconName;
+    className?: string;
+    style?: React.CSSProperties;
+    faProps?: Omit<FaIconProps, "icon" | "className">;
+};
+export declare function Icon(props: IconProps): JSX.Element;
+export {};

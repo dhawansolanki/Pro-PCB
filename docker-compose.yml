@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  caddy:
+    depends_on:
+      - api
+      - client
+    build:
+      dockerfile: Dockerfile
+      context: "./caddyServer"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    # env_file:
+      # - ./server/.env
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+    env_file:
+      - ./server/.env
+  client:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:

@@ -1,0 +1,13 @@
+import { Board, BoardSummary } from '../types';
+import { BoardDatabase, AppDatabase, DbAppPreferences } from './types';
+export * from './types';
+export declare function createBoardDatabase(): Promise<BoardDatabase>;
+export declare function createAppDatabase(): Promise<AppDatabase>;
+export declare function ensureAppPreferences(db: AppDatabase): Promise<DbAppPreferences>;
+export declare function updateAppPreferences(db: AppDatabase, update: DbAppPreferences): Promise<number>;
+export declare function saveBoard(db: BoardDatabase, board: Board): Promise<string>;
+export declare function getBoard(db: BoardDatabase, id: string): Promise<Board>;
+export declare function getBoards(db: BoardDatabase): Promise<Array<BoardSummary>>;
+export declare function findBoardByUrl(db: BoardDatabase, url: string): Promise<Board | null>;
+export declare function deleteBoard(db: BoardDatabase, id: string): Promise<void>;
+export declare function deleteAllBoards(db: BoardDatabase): Promise<void>;
